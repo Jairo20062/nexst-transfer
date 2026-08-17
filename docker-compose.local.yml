@@ -1,6 +1,6 @@
 services:
-  pingvin-share-x:
-    container_name: pingvin-share-x
+  nexst-transfer:
+    container_name: nexst-transfer
     build: .
     restart: unless-stopped
     ports:

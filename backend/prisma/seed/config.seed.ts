@@ -12,7 +12,7 @@ export const configVariables = {
   general: {
     appName: {
       type: "string",
-      defaultValue: "Pingvin Share X",
+      defaultValue: "Nexst Transfer",
       secret: false,
     },
     appUrl: {
@@ -145,7 +145,7 @@ export const configVariables = {
     },
     "redis-url": {
       type: "string",
-      defaultValue: "redis://pingvin-redis:6379",
+      defaultValue: "redis://nexst-redis:6379",
       secret: true,
     },
     ttl: {
@@ -174,7 +174,7 @@ export const configVariables = {
     shareRecipientsMessage: {
       type: "text",
       defaultValue:
-        "Hey!\n\n{creator} ({creatorEmail}) shared some files with you. You can view or download the files with this link: {shareUrl}\n\nThe share will expire {expires}.\n\nNote: {desc}\n\nShared securely with Pingvin Share 🐧",
+        "Hey!\n\n{creator} ({creatorEmail}) shared some files with you. You can view or download the files with this link: {shareUrl}\n\nThe share will expire {expires}.\n\nNote: {desc}\n\nShared securely with Nexst Transfer",
     },
     reverseShareSubject: {
       type: "string",
@@ -183,25 +183,25 @@ export const configVariables = {
     reverseShareMessage: {
       type: "text",
       defaultValue:
-        "Hey!\n\nA share was just created with your reverse share link: {shareUrl}\n\nShared securely with Pingvin Share 🐧",
+        "Hey!\n\nA share was just created with your reverse share link: {shareUrl}\n\nShared securely with Nexst Transfer",
     },
     resetPasswordSubject: {
       type: "string",
-      defaultValue: "Pingvin Share password reset",
+      defaultValue: "Nexst Transfer password reset",
     },
     resetPasswordMessage: {
       type: "text",
       defaultValue:
-        "Hey!\n\nYou requested a password reset. Click this link to reset your password: {url}\nThe link expires in an hour.\n\nPingvin Share 🐧",
+        "Hey!\n\nYou requested a password reset. Click this link to reset your password: {url}\nThe link expires in an hour.\n\nNexst Transfer",
     },
     inviteSubject: {
       type: "string",
-      defaultValue: "Pingvin Share invite",
+      defaultValue: "Nexst Transfer invite",
     },
     inviteMessage: {
       type: "text",
       defaultValue:
-        'Hey!\n\nYou were invited to Pingvin Share. Click this link to accept the invite: {url}\n\nYou can use the email "{email}" and the password "{password}" to sign in.\n\nPingvin Share 🐧',
+        'Hey!\n\nYou were invited to Nexst Transfer. Click this link to accept the invite: {url}\n\nYou can use the email "{email}" and the password "{password}" to sign in.\n\nNexst Transfer',
     },
     enableShareDownloadNotifications: {
       type: "boolean",
@@ -220,7 +220,7 @@ export const configVariables = {
     shareDownloadNotificationMessage: {
       type: "text",
       defaultValue:
-        "Hey!\n\n{recipientEmail} downloaded {fileName} from your share: {shareUrl}\n\nPingvin Share 🐧",
+        "Hey!\n\n{recipientEmail} downloaded {fileName} from your share: {shareUrl}\n\nNexst Transfer",
     },
     enableEmailVerification: {
       type: "boolean",
@@ -229,12 +229,12 @@ export const configVariables = {
     },
     verificationSubject: {
       type: "string",
-      defaultValue: "Verify your Pingvin Share account",
+      defaultValue: "Verify your Nexst Transfer account",
     },
     verificationMessage: {
       type: "text",
       defaultValue:
-        "Hey!\n\nYou just signed up for Pingvin Share. Click this link to verify your account: {url}\n\nThe link expires in 24 hours.\n\nPingvin Share 🐧",
+        "Hey!\n\nYou just signed up for Nexst Transfer. Click this link to verify your account: {url}\n\nThe link expires in 24 hours.\n\nNexst Transfer",
     },
   },
   smtp: {
@@ -570,7 +570,7 @@ async function migrateConfigVariables() {
   for (const existingConfigVariable of existingConfigVariables) {
     const configVariable =
       configVariables[existingConfigVariable.category]?.[
-      existingConfigVariable.name
+        existingConfigVariable.name
       ];
 
     // Delete the config variable if it doesn't exist in the seed

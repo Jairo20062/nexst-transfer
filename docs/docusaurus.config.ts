@@ -3,10 +3,10 @@ import type { Config } from "@docusaurus/types";
 import { themes as prismThemes } from "prism-react-renderer";
 
 const config: Config = {
-  title: "Pingvin Share X",
+  title: "Nexst Transfer",
   tagline:
-    "Pingvin Share X is a self-hosted file sharing platform and an alternative for WeTransfer.",
-  favicon: "img/pingvinshare.svg",
+    "Nexst Transfer is a self-hosted file sharing platform and an alternative for WeTransfer.",
+  favicon: "img/nexst-transfer.svg",
 
   url: "https://smp46.github.io",
   baseUrl: "/pingvin-share-x/",
@@ -48,15 +48,15 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: "img/pingvinshare.svg",
+    image: "img/nexst-transfer.svg",
     colorMode: {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: "Pingvin Share X",
+      title: "Nexst Transfer",
       logo: {
-        alt: "Pingvin Share Logo",
-        src: "img/pingvinshare.svg",
+        alt: "Nexst Transfer Logo",
+        src: "img/nexst-transfer.svg",
       },
       items: [
         {

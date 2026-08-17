@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://github.com/user-attachments/assets/b5bc0c1e-5641-4106-b322-a1b0f5448b0f" width="60"/>
   
-  <h1>Pingvin Share X</h1>
+  <h1>Nexst Transfer</h1>
 
   <p align="center">
 
@@ -11,7 +11,7 @@
 </div>
 
 
-Pingvin Share X is a fork of [Pingvin Share](https://github.com/stonith404/pingvin-share), a self-hosted file sharing platform and an alternative for WeTransfer.
+Nexst Transfer is a fork of [Pingvin Share](https://github.com/stonith404/pingvin-share), a self-hosted file sharing platform and an alternative for WeTransfer.
 
 ## Features
 
@@ -35,11 +35,11 @@ Pingvin Share X is a fork of [Pingvin Share](https://github.com/stonith404/pingv
 The website is now listening on `http://localhost:3000`.
 
 > [!TIP]
-> Checkout [stonith404/Pocket ID](https://github.com/stonith404/pocket-id), a user-friendly OIDC provider that lets you easily log in to services like Pingvin Share X using Passkeys. Made by the original creator of Pingvin Share.
+> Checkout [stonith404/Pocket ID](https://github.com/stonith404/pocket-id), a user-friendly OIDC provider that lets you easily log in to services like Nexst Transfer using Passkeys. Made by the original creator of Pingvin Share.
 
 ### Beta Channel (Testing)
 
-Pingvin Share X now has a beta, this is where all (non-time sensitive) bug fixes, features and other updates will go before reaching stable.
+Nexst Transfer now has a beta, this is where all (non-time sensitive) bug fixes, features and other updates will go before reaching stable.
 
 To use the Beta channel:
 1. Update the container image tag in your `docker-compose.yml` to `:beta`:
@@ -58,7 +58,7 @@ To use the Beta channel:
 
 ### Alternative Deployments
 
-Pingvin Share X can also be deployed through other platforms. For more information, see the [documentation](https://smp46.github.io/pingvin-share-x/setup/installation#alternative-deployments).
+Nexst Transfer can also be deployed through other platforms. For more information, see the [documentation](https://smp46.github.io/pingvin-share-x/setup/installation#alternative-deployments).
 
 ## Documentation
 
@@ -66,9 +66,9 @@ For more installation options and advanced configurations, please refer to the [
 
 ## Sponsors
 
-If you find Pingvin Share X useful and would like to support its ongoing development and maintenance please consider becoming a sponsor! 
+If you find Nexst Transfer useful and would like to support its ongoing development and maintenance please consider becoming a sponsor! 
 
-I would like to host a demo instance online for people to try out Pingvin, your sponsorship would make this possible.
+I would like to host a demo instance online for people to try out Nexst Transfer, your sponsorship would make this possible.
 
 As a token of appreciation, sponsors can have their profile or company logo displayed right here in this section.
 
