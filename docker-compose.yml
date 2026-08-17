@@ -1,16 +1,70 @@
 services:
-  pingvin-share-x:
-    container_name: pingvin-share-x
-    image: smp46/pingvin-share-x # or ghcr.io/smp46/pingvin-share-x
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: frontend-runner
+    container_name: nexst-transfer-frontend
     restart: unless-stopped
-    ports:
-      - 3000:3000
+    # No `ports:` here on purpose — Coolify's own proxy (Traefik) publishes
+    # this service to the internet. In the Coolify UI, set this service's
+    # domain to https://transfer.nexstap.nl and its port to 3000.
+    expose:
+      - "3000"
     environment:
-      - TRUST_PROXY=false # Set to true if a reverse proxy is in front of the container
+      - PORT=3000
+      # Talk to the backend via its Docker Compose service name, on the
+      # `internal` network below — never localhost, since frontend and
+      # backend are separate containers here.
+      - API_URL=http://backend:8080
+      # Coolify's Traefik sits in front of this container.
+      - TRUST_PROXY=true
     volumes:
+      # Shared with the backend: the admin UI's custom logo/favicon upload
+      # is written by the backend into this same path (see
+      # backend/src/config/logo.service.ts), and served here by the frontend.
+      - "./data/images:/opt/app/frontend/public/img:rw,z"
+    depends_on:
+      - backend
+    networks:
+      - internal
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend-runner
+    container_name: nexst-transfer-backend
+    restart: unless-stopped
+    # No `ports:` and no `expose:` to the host at all — the backend is only
+    # reachable from other containers on the `internal` network (i.e. the
+    # frontend). It is never bound to the host and never reachable from the
+    # internet.
+    environment:
+      - BACKEND_PORT=8080
+      # Requests only ever arrive from the frontend container, not directly
+      # from the internet, so there's no external proxy chain to trust here.
+      - TRUST_PROXY=false
+    volumes:
+      # Application data: SQLite database, temp/session state, etc.
+      # Keep this on fast local/Coolify-managed storage, NOT the Storage
+      # Box below — SQLite does not tolerate network filesystem locking.
       - "./data:/opt/app/backend/data:rw,z"
       - "./data/images:/opt/app/frontend/public/img:rw,z"
-  #      - "./config.yaml:/opt/app/config.yaml" # Add this line, if you want to configure pingvin-share-x via config file and not via UI
+      # Large uploaded files: a Hetzner Storage Box mounted on the HOST
+      # (e.g. via CIFS/SMB, see /etc/fstab) and bind-mounted through here.
+      # This is nested under backend/data, so it only replaces the
+      # `uploads` subfolder — the database above stays on local storage.
+      - "/mnt/hetzner-storagebox/nexst-transfer:/opt/app/backend/data/uploads:rw,z"
+      #      - "./config.yaml:/opt/app/config.yaml" # Uncomment to configure via file instead of the UI
+    networks:
+      - internal
 
-  # To add ClamAV, to scan your shares for malicious files,
-  # see https://smp46.github.io/pingvin-share-x/setup/integrations/#clamav-docker-only
+networks:
+  internal:
+    driver: bridge
+
+  # To add ClamAV to scan shares for malicious files, see
+  # https://smp46.github.io/pingvin-share-x/setup/integrations/#clamav-docker-only
+  # Add it as a third service on the `internal` network and it'll be
+  # reachable from the backend at CLAMAV_HOST=clamav automatically.
