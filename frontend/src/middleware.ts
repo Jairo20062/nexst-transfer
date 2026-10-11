@@ -121,9 +121,9 @@ export async function middleware(request: NextRequest) {
       condition: routes.admin.contains(route) && !user?.isAdmin,
       path: "/upload",
     },
-    // Home page
+    // There is no home page, send everyone to the upload page
     {
-      condition: (!getConfig("general.showHomePage") || user) && route == "/",
+      condition: route == "/",
       path: "/upload",
     },
     // Imprint redirect

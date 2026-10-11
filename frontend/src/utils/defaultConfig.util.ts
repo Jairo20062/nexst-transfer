@@ -9,12 +9,6 @@ export function getDefaultConfig(): Config[] {
       type: "string",
     },
     {
-      key: "general.showHomePage",
-      value: "true",
-      defaultValue: "true",
-      type: "boolean",
-    },
-    {
       key: "general.defaultLanguage",
       value: "en-US",
       defaultValue: "en-US",

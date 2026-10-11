@@ -24,11 +24,6 @@ export const configVariables = {
       type: "boolean",
       defaultValue: "false",
     },
-    showHomePage: {
-      type: "boolean",
-      defaultValue: "true",
-      secret: false,
-    },
     sessionDuration: {
       type: "timespan",
       defaultValue: "3 months",

@@ -2,7 +2,6 @@ export default {
   // Navbar
   "navbar.upload": "Upload",
   "navbar.signin": "Sign in",
-  "navbar.home": "Home",
   "navbar.signup": "Sign up",
 
   "navbar.links.shares": "My shares",
@@ -13,24 +12,6 @@ export default {
   "navbar.avatar.admin": "Administration",
   "navbar.avatar.signout": "Sign out",
   // END navbar
-
-  // /
-  "home.title": "A <h>self-hosted</h> file sharing platform.",
-
-  "home.description":
-    "Do you really want to give your personal files in the hand of third parties like WeTransfer?",
-  "home.bullet.a.name": "Self-Hosted",
-  "home.bullet.a.description": "Host Nexst Transfer on your own machine.",
-  "home.bullet.b.name": "Privacy",
-  "home.bullet.b.description":
-    "Your files are yours and will never be accessed by third parties.",
-  "home.bullet.c.name": "No annoying file size limit",
-  "home.bullet.c.description":
-    "Upload files as big as you want. Only your hard drive will be your limit.",
-
-  "home.button.start": "Get started",
-  "home.button.source": "Source code",
-  // END /
 
   // /auth/signin
   "signin.title": "Welcome back",
@@ -534,9 +515,6 @@ export default {
   "admin.config.general.secure-cookies": "Secure cookies",
   "admin.config.general.secure-cookies.description":
     "Whether to set the secure flag on cookies. If enabled, the site will not function when accessed over HTTP.",
-  "admin.config.general.show-home-page": "Show home page",
-  "admin.config.general.show-home-page.description":
-    "Whether to show the home page",
   "admin.config.general.session-duration": "Session Duration",
   "admin.config.general.session-duration.description":
     "Time after which a user must log in again (default: 3 months).",
